@@ -1,0 +1,42 @@
+1. Bridge:
+
+Abstraction: Car
+Refined Abstraction: Mercedes, Audi
+
+Implementor: CarStyle - LHS, RHS
+
+2. Decorator
+Email,   
+ConcreteEmail
+Decorators:  SecureEmail, ExternalEmail
+
+Connection, 
+LoggableConnection
+
+
+java stream classes
+
+3. Facade
+TravelAgent facade
+
+subsystem - book hotels, book flights, book cars
+
+4. Flyweight
+Java strings - flyweights
+Boolean class - TRUE, FALSE - flyweights
+accessible via factory methods
+
+5. Proxy
+Example: Proxy for Remote object, Proxy for native object..
+
+4. Adapter
+1. proprietary library that saves data into a local filesystem
+as an app designer within our library we wish to integrate this prop library into our 
+set of interfaces.  
+FileSystemDAO.save(){
+	propLibraryInstance.appendToEmptyFile();
+}
+
+
+TODO: Command, Interpreter, Strategy, Mediator, Memento
+	
