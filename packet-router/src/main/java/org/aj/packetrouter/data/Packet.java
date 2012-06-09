@@ -2,7 +2,8 @@ package org.aj.packetrouter.data;
 
 /**
  * @author AJ
- * represents a data packet
+ * represents a data packet on the network. Packets
+ * can be of different types
  */
 public interface Packet {
 	
