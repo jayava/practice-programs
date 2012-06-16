@@ -6,7 +6,7 @@ public class BCBTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		final BlockingCircularBuffer b = new BlockingCircularBuffer();
+		final BlockingCircularBuffer<String> b = new BlockingCircularBuffer<>();
 		final int streamEntries = 100;
 
 		Thread consumer = new Thread(new Runnable() {
@@ -14,7 +14,11 @@ public class BCBTest {
 			@Override
 			public void run() {
 				for (int i = 0; i < streamEntries; i++) {
-					System.out.println("Consumer consumed: " + b.read());
+					try {
+						System.out.println("Consumer consumed: " + b.read());
+					} catch (InterruptedException e) {
+						Thread.currentThread().interrupt();
+					}
 				}
 			}
 		});
@@ -25,7 +29,11 @@ public class BCBTest {
 			public void run() {
 				for (int i = 0; i < streamEntries; i++) {
 					System.out.println("Producer wrote Object" + i);
-					b.write(new String("Object" + i));
+					try {
+						b.write(new String("Object" + i));
+					} catch (InterruptedException e) {
+						Thread.currentThread().interrupt();
+					}
 				}
 
 			}
