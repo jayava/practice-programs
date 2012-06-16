@@ -30,7 +30,7 @@ public class FilteringIterator<E> implements Iterator<E> {
 	@Override
 	public boolean hasNext() {
 		boolean hasNext = false;
-		if (nextValidObj == null) {
+		if (!nextPointerValid) {
 			/**
 			 * The next pointer is currently null, so we must advance it using
 			 * the underlying iterator
@@ -50,6 +50,7 @@ public class FilteringIterator<E> implements Iterator<E> {
 						notFound = false;
 						nextValidObj = temp;
 						hasNext = true;
+						nextPointerValid = true;
 					}
 				} else {
 					/**
@@ -75,7 +76,7 @@ public class FilteringIterator<E> implements Iterator<E> {
 	@Override
 	public E next() {
 		E nextObj = null;
-		if (nextValidObj == null) {
+		if (!nextPointerValid) {
 			/**
 			 * The next pointer is currently null, so we must advance it using
 			 * the underlying iterator
@@ -103,7 +104,7 @@ public class FilteringIterator<E> implements Iterator<E> {
 			 */
 			nextObj = nextValidObj;
 			nextValidObj = null;
-			nextPointerValid = true;
+			nextPointerValid = false;
 		}
 		return nextObj;
 	}
