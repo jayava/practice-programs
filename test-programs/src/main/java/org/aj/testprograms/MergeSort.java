@@ -1,5 +1,7 @@
 package org.aj.testprograms;
 
+import java.util.Arrays;
+
 public class MergeSort {
 
 	/**
@@ -8,10 +10,12 @@ public class MergeSort {
 	 * @param numbers
 	 */
 	public static void sort(int[] numbers) {
+		System.out.println("Unsorted numbers: " + Arrays.toString(numbers));
 		if (numbers.length <= 1)
 			return;
 
 		mergesort(0, numbers.length - 1, numbers);
+		System.out.println("Sorted numbers" + Arrays.toString(numbers));
 	}
 
 	/**
@@ -24,23 +28,21 @@ public class MergeSort {
 			int middle = (low + high) / 2;
 			mergesort(low, middle, numbers);
 			mergesort(middle + 1, high, numbers);
-			merge(low, high, numbers);
+			merge(low, high, middle, numbers);
 		}
 	}
 
-	private static void merge(int low, int high, int[] numbers) {
+	private static void merge(int low, int high, int middle, int[] numbers) {
 
 		// copy into helper
-		int[] helper = new int[high - low + 1];
-		int k = low;
-		for (int i = 0; i < helper.length; i++) {
-			helper[i] = numbers[k++];
+		int[] helper = new int[numbers.length];
+		for (int i = low; i < helper.length; i++) {
+			helper[i] = numbers[i];
 		}
 		
-		int middle = (high - low)/2;
 		int j = middle + 1;
-		int i = 0;
-		k = low;
+		int i = low;
+		int k = low;
 
 		while (i <= middle) {
 			if (j <= high) {
