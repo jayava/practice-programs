@@ -86,4 +86,32 @@ public class IntegerOperationsUtils {
 		else
 			return result;
 	}
+	
+	public static int multiplyUsingRecursion(int a, int b){
+		if( b == 0 )
+			return 0;
+		
+		if( b == 1)
+			return a;
+		
+		if( b > 0)
+			return (a + multiplyUsingRecursion(a, b -1));
+		else 
+			return (-multiplyUsingRecursion(a, -b));
+		
+	}
+	
+	public static int powerOfTwo(int n){
+		return 1<<n;
+	}
+	
+	public static int logn(int n){
+		int result = 0;
+		n>>=1;
+		while(n != 0){
+			++result;
+			n>>=1;
+		}
+		return result;
+	}
 }

@@ -61,4 +61,31 @@ public class TestIntegerOperationsUtils {
 		assertEquals(IntegerOperationsUtils.multiplyUsingBitwise(0, 0),0);
 		assertEquals(IntegerOperationsUtils.multiplyUsingBitwise(4, -7),-28);
 	}
+	
+	@Test
+	public void testMultiplyUsingRecursion() {
+		assertEquals(IntegerOperationsUtils.multiplyUsingRecursion(3, 4),12);
+		assertEquals(IntegerOperationsUtils.multiplyUsingRecursion(-4, -5),20);
+		assertEquals(IntegerOperationsUtils.multiplyUsingRecursion(-4, 4),-16);
+		assertEquals(IntegerOperationsUtils.multiplyUsingRecursion(-4, 0),0);
+		assertEquals(IntegerOperationsUtils.multiplyUsingRecursion(4, 0),0);
+		assertEquals(IntegerOperationsUtils.multiplyUsingRecursion(0, 0),0);
+		assertEquals(IntegerOperationsUtils.multiplyUsingRecursion(4, -7),-28);
+	}
+	
+	@Test
+	public void testPowerOfTwo() {
+		assertEquals(IntegerOperationsUtils.powerOfTwo(0),1);
+		assertEquals(IntegerOperationsUtils.powerOfTwo(1),2);
+		assertEquals(IntegerOperationsUtils.powerOfTwo(10),1024);
+	}
+	
+	@Test
+	public void testLogN() {
+		assertEquals(IntegerOperationsUtils.logn(1),0);
+		assertEquals(IntegerOperationsUtils.logn(2),1);
+		assertEquals(IntegerOperationsUtils.logn(4),2);
+		assertEquals(IntegerOperationsUtils.logn(128),7);
+	}
+
 }
