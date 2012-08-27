@@ -29,6 +29,7 @@ public interface Packet {
 		
 	}
 	
+	
 	/**
 	 * enum to represent the packet type
 	 * @author AJ
